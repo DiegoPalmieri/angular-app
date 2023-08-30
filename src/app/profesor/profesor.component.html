@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profesor</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://googlecdn.com/myscript.js"></script>
+
+    <script type="text/javascript" src="jquery-3.3.1.js"></script>
+
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .header {
+        background-color: #007bff;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .content {
+        margin: 20px;
+      }
+
+      form {
+        margin-bottom: 20px;
+      }
+
+      h2 {
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Bienvenido Profesor</h1>
+      </div>
+      <div class="content">
+        <h2>Reserva de Laboratorio</h2>
+        <form id="reservaLaboratorio" action="" method="POST">
+          <div class="form-group">
+            <label for="salas">Salas Disponibles</label>
+            <select id="salas" class="form-control" name="salas" required>
+              <option value="">Seleccione la Sala</option>
+              <optgroup label="Piso 1">
+                <option value="E-104">E-104</option>
+                <option value="E-105">E-105</option>
+              </optgroup>
+
+              <optgroup label="Piso 2">
+                <option value="E-201">E-201</option>
+                <option value="E-202">E-202</option>
+                <option value="E-203">E-203</option>
+                <option value="E-204">E-204</option>
+              </optgroup>
+
+              <optgroup label="Piso 3">
+                <option value="E-301">E-301</option>
+                <option value="E-302">E-302</option>
+                <option value="E-303">E-303</option>
+                <option value="3-304">E-304</option>
+              </optgroup>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fecha_laboratorio">Fecha:</label>
+            <input
+              id="fecha_laboratorio"
+              class="form-control"
+              type="date"
+              name="fecha_laboratorio"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="hora_inicio_laboratorio">Hora de Inicio:</label>
+            <input
+              id="hora_inicio_laboratorio"
+              class="form-control"
+              type="time"
+              name="hora_inicio_laboratorio"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="hora_fin_laboratorio">Hora de Fin:</label>
+            <input
+              id="hora_fin_laboratorio"
+              class="form-control"
+              type="time"
+              name="hora_fin_laboratorio"
+              required
+            />
+          </div>
+          <button class="btn btn-primary" type="submit">
+            Reservar Laboratorio
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

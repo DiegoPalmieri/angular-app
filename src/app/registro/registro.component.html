@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <!-- Agregar el enlace CDN de animate.css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      /* Cambiar el color de fondo del botón primario al pasar el cursor */
+      .btn-primary:hover {
+        background-color: #add8e6; /* Azul claro */
+        color: #0000ff; /* Azul oscuro */
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      /* Cambiar el color de fondo del botón secundario al pasar el cursor */
+      .btn-secondary:hover {
+        background-color: #ffffff; /* Blanco */
+        color: #000000; /* Negro */
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Usar la clase contenedor de bootstrap -->
+    <div class="container">
+      <!-- Usar la clase tarjeta de bootstrap -->
+      <div class="card mx-auto mt-5" style="width: 18rem">
+        <!-- Usar la clase encabezado-tarjeta de bootstrap -->
+        <div class="card-header text-center bg-primary text-white">
+          <h2>Registrarse</h2>
+        </div>
+        <!-- Usar la clase cuerpo-tarjeta de bootstrap -->
+        <div class="card-body">
+          <form action="RegistroServlet" method="post">
+            <div class="form-group">
+              <label for="username"><b>Username</b></label>
+              <input
+                type="text"
+                placeholder="Ingrese su Nombre Completo"
+                name="username"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="identificacion"><b>Identificación</b></label>
+              <input
+                type="text"
+                maxlength="10"
+                placeholder="Número de Identificación"
+                name="identificacion"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email"><b>Email</b></label>
+              <input
+                type="text"
+                placeholder="Ingresar Email"
+                name="email"
+                class="form-control"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password"><b>Contraseña</b></label>
+              <input
+                type="password"
+                placeholder="Ingresar Contraseña"
+                name="password"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="rol"><b>Tipo de Rol</b></label>
+              <!-- Usar la clase seleccion-personalizada de bootstrap -->
+              <select id="rol" name="rol" class="custom-select" required>
+                <option value="" disabled selected>Registrarse como:</option>
+                <option value="admin">Administrador</option>
+                <option value="profesor">Profesor</option>
+              </select>
+            </div>
+            <!-- Usar las clases boton y boton-primario de bootstrap -->
+            <!-- Agregar las clases animate__animated y animate__pulse al botón -->
+            <div class="text-center mt-3">
+              <button
+                type="submit"
+                class="btn btn-primary animate__animated animate__pulse"
+              >
+                Registrarse
+              </button>
+            </div>
+            <div class="text-center mt-3">
+              <button
+                class="btn btn-secondary animate__animated animate__pulse"
+                type="button"
+                onclick="location.href = 'login'"
+              >
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
