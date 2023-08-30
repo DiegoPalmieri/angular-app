@@ -107,5 +107,42 @@
         </form>
       </div>
     </div>
+
+    <script>
+      document
+        .getElementById("botonReserva")
+        .addEventListener("click", function () {
+          window.location.href = "estadoReserva.html";
+        });
+    </script>
+
+    <div id="mensaje"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const reservaForm = document.getElementById("reservaLaboratorio");
+        const mensaje = document.getElementById("mensaje");
+
+        reservaForm.addEventListener("submit", function (e) {
+          e.preventDefault();
+          const horaInicio = new Date(
+            `1970-01-01T${
+              document.getElementById("hora_inicio_laboratorio").value
+            }`
+          );
+          const horaFin = new Date(
+            `1970-01-01T${
+              document.getElementById("hora_fin_laboratorio").value
+            }`
+          );
+          const horaDiferencia = (horaFin - horaInicio) / (60 * 60 * 1000);
+
+          if (horaDiferencia <= 2 && horaDiferencia >= 0) {
+            alert("RESERVA EXITOSA");
+          } else {
+            alert("ERROR, NO PUEDE RESERVAR POR MAS DE DOS HORAS");
+          }
+        });
+      });
+    </script>
   </body>
 </html>
