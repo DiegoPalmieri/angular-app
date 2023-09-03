@@ -9,10 +9,8 @@
       type="text/css"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://googlecdn.com/myscript.js"></script>
 
-    <script type="text/javascript" src="jquery-3.3.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <style>
       body {
@@ -107,39 +105,20 @@
         </form>
       </div>
     </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-      document
-        .getElementById("botonReserva")
-        .addEventListener("click", function () {
-          window.location.href = "estadoReserva.html";
-        });
-    </script>
+      $(document).ready(function () {
+        const horaInicio = document.getElementById("hora_inicio_laboratorio");
+        const horaFin = document.getElementById("hora_fin_laboratorio");
 
-    <div id="mensaje"></div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const reservaForm = document.getElementById("reservaLaboratorio");
-        const mensaje = document.getElementById("mensaje");
+        horaFin.addEventListener("change", function () {
+          const differenceInMinutes = (horaFin.value - horaInicio.value)
+            .totalMinutes;
 
-        reservaForm.addEventListener("submit", function (e) {
-          e.preventDefault();
-          const horaInicio = new Date(
-            `1970-01-01T${
-              document.getElementById("hora_inicio_laboratorio").value
-            }`
-          );
-          const horaFin = new Date(
-            `1970-01-01T${
-              document.getElementById("hora_fin_laboratorio").value
-            }`
-          );
-          const horaDiferencia = (horaFin - horaInicio) / (60 * 60 * 1000);
-
-          if (horaDiferencia <= 2 && horaDiferencia >= 0) {
-            alert("RESERVA EXITOSA");
-          } else {
-            alert("ERROR, NO PUEDE RESERVAR POR MAS DE DOS HORAS");
+          if (differenceInMinutes > 120) {
+            horaFin.value = horaInicio.value;
+            alert("La reserva no puede ser mayor a 2 horas");
           }
         });
       });

@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ProfesorComponent } from './profesor/profesor.component';
-import { AdministradorComponent } from './administrador/administrador.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { AdministradorComponent } from './administrador/administrador.component'
     LoginComponent,
     RegistroComponent,
     ProfesorComponent,
-    AdministradorComponent
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
