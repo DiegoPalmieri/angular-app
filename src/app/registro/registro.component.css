@@ -1,0 +1,23 @@
+     /* Cambiar el color de fondo del botón primario al pasar el cursor */
+     .btn-primary:hover {
+       background-color: #add8e6;
+       /* Azul claro */
+       color: #0000ff;
+       /* Azul oscuro */
+       border: none;
+       padding: 10px 20px;
+       font-size: 16px;
+       cursor: pointer;
+     }
+
+     /* Cambiar el color de fondo del botón secundario al pasar el cursor */
+     .btn-secondary:hover {
+       background-color: #ffffff;
+       /* Blanco */
+       color: #000000;
+       /* Negro */
+       border: none;
+       padding: 10px 20px;
+       font-size: 16px;
+       cursor: pointer;
+     }
