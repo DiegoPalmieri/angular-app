@@ -49,6 +49,7 @@
               type="time"
               name="hora_inicio_equipo"
               required
+              onchange="validarTiempo()"
             />
           </div>
           <div class="form-group">
@@ -59,6 +60,7 @@
               type="time"
               name="hora_fin_equipo"
               required
+              onchange="validarTiempo()"
             />
           </div>
           <button class="btn btn-primary" type="submit">Reservar Equipo</button>
@@ -68,22 +70,33 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
-      document
-        .querySelector("#reservaAudiovisual")
-        .addEventListener("submit", function (event) {
-          const inicioTiempo = document.querySelector(
-            '[name="hora_inicio"]'
-          ).valueAsNumber;
-          const finTiempo =
-            document.querySelector('[name="hora_fin"]').valueAsNumber;
-          const dosHorasEnMilisegundos = 2 * 60 * 60 * 1000;
-          if (finTiempo - inicioTiempo > dosHorasEnMilisegundos) {
-            alert(
-              "Solo puede hacer uso del equipo audiovisual por 2 horas o menos."
-            );
-            event.preventDefault();
-          }
-        });
+      function validarTiempo() {
+        // Obtener los valores de los campos de hora de inicio y hora de fin
+        var horaInicio = document.getElementById("hora_inicio").value;
+        var horaFin = document.getElementById("hora_fin").value;
+
+        // Convertir los valores a objetos Date
+        var fechaInicio = new Date("1970-01-01 " + horaInicio);
+        var fechaFin = new Date("1970-01-01 " + horaFin);
+
+        // Calcular la diferencia en milisegundos
+        var diferencia = fechaFin - fechaInicio;
+
+        // Convertir la diferencia a horas
+        var horas = diferencia / (1000 * 60 * 60);
+
+        // Obtener el botón de reservar
+        var botonReservar = document.querySelector("button[type='submit']");
+
+        // Si las horas son mayores que 3, mostrar un mensaje de error y deshabilitar el botón
+        if (horas > 3) {
+          alert("No se puede reservar un equipo por más de 3 horas");
+          botonReservar.disabled = true;
+        } else {
+          // Si las horas son menores o iguales que 3, habilitar el botón
+          botonReservar.disabled = false;
+        }
+      }
     </script>
   </body>
 </html>
