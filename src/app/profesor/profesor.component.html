@@ -66,5 +66,24 @@
       </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      document
+        .querySelector("#reservaAudiovisual")
+        .addEventListener("submit", function (event) {
+          const inicioTiempo = document.querySelector(
+            '[name="hora_inicio"]'
+          ).valueAsNumber;
+          const finTiempo =
+            document.querySelector('[name="hora_fin"]').valueAsNumber;
+          const dosHorasEnMilisegundos = 2 * 60 * 60 * 1000;
+          if (finTiempo - inicioTiempo > dosHorasEnMilisegundos) {
+            alert(
+              "Solo puede hacer uso del equipo audiovisual por 2 horas o menos."
+            );
+            event.preventDefault();
+          }
+        });
+    </script>
   </body>
 </html>
