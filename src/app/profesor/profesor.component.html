@@ -18,65 +18,52 @@
         <h1>Bienvenido Profesor</h1>
       </div>
       <div class="content">
-        <h2>Reserva de Laboratorio</h2>
-        <form id="reservaLaboratorio" action="" method="POST">
+        <h2>Reserva de Equipo Audiovisual</h2>
+        <form
+          id="reservaAudiovisual"
+          action="reserva_equipo_audiovisual"
+          method="POST"
+        >
           <div class="form-group">
-            <label for="salas">Salas Disponibles</label>
-            <select id="salas" class="form-control" name="salas" required>
-              <option value="">Seleccione la Sala</option>
-              <optgroup label="Piso 1">
-                <option value="E-104">E-104</option>
-                <option value="E-105">E-105</option>
-              </optgroup>
-
-              <optgroup label="Piso 2">
-                <option value="E-201">E-201</option>
-                <option value="E-202">E-202</option>
-                <option value="E-203">E-203</option>
-                <option value="E-204">E-204</option>
-              </optgroup>
-
-              <optgroup label="Piso 3">
-                <option value="E-301">E-301</option>
-                <option value="E-302">E-302</option>
-                <option value="E-303">E-303</option>
-                <option value="3-304">E-304</option>
-              </optgroup>
+            <label for="equipo">Equipo:</label>
+            <select class="form-control" name="equipo" required>
+              <option value="">Seleccione un equipo</option>
+              <option value="proyector">Proyector</option>
+              <option value="altavoces">Altavoces</option>
+              <option value="altavoces">Laptop</option>
+              <option value="altavoces">HDMI</option>
+              <option value="altavoces">VGA</option>
+              <option value="altavoces">Cable De Poder</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="fecha_laboratorio">Fecha:</label>
+            <label for="fecha">Fecha:</label>
             <input
-              id="fecha_laboratorio"
               class="form-control"
               type="date"
-              name="fecha_laboratorio"
+              name="fecha_equipo"
               required
             />
           </div>
           <div class="form-group">
-            <label for="hora_inicio_laboratorio">Hora de Inicio:</label>
+            <label for="hora_inicio">Hora de inicio:</label>
             <input
-              id="hora_inicio_laboratorio"
               class="form-control"
               type="time"
-              name="hora_inicio_laboratorio"
+              name="hora_inicio_equipo"
               required
             />
           </div>
           <div class="form-group">
-            <label for="hora_fin_laboratorio">Hora de Fin:</label>
+            <label for="hora_fin">Hora de fin:</label>
             <input
-              id="hora_fin_laboratorio"
               class="form-control"
               type="time"
-              name="hora_fin_laboratorio"
+              name="hora_fin_equipo"
               required
             />
           </div>
-          <button class="btn btn-primary" type="submit">
-            Reservar Laboratorio
-          </button>
+          <button class="btn btn-primary" type="submit">Reservar Equipo</button>
         </form>
       </div>
     </div>
