@@ -1,102 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profesor</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <h1>Bienvenido Profesor</h1>
-      </div>
-      <div class="content">
-        <h2>Reserva de Equipo Audiovisual</h2>
-        <form id="reservaAudiovisual" action="" method="POST">
-          <div class="form-group">
-            <label for="equipo">Equipo:</label>
-            <select class="form-control" name="equipo" required>
-              <option value="">Seleccione un equipo</option>
-              <option value="proyector">Proyector</option>
-              <option value="altavoces">Altavoces</option>
-              <option value="laptop">Laptop</option>
-              <option value="hdmi">HDMI</option>
-              <option value="vga">VGA</option>
-              <option value="cablePoder">Cable De Poder</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="fecha">Fecha:</label>
-            <input
-              class="form-control"
-              type="date"
-              name="fecha_equipo"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="hora_inicio">Hora de inicio:</label>
-            <input
-              id="hora_inicio"
-              class="form-control"
-              type="time"
-              name="hora_inicio_equipo"
-              required
-              onchange="validarTiempo()"
-            />
-          </div>
-          <div class="form-group">
-            <label for="hora_fin">Hora de fin:</label>
-            <input
-              id="hora_fin"
-              class="form-control"
-              type="time"
-              name="hora_fin_equipo"
-              required
-              onchange="validarTiempo()"
-            />
-          </div>
-          <button class="btn btn-primary" type="submit">Reservar Equipo</button>
-        </form>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profesor</title>
+  <link rel="stylesheet" type="text/css"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Bienvenido Profesor</h1>
     </div>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="content">
+      <h2>Reserva de Equipo Audiovisual</h2>
+      <form id="reservaAudiovisual" action="" method="POST">
+        <div class="form-group">
+          <label for="equipo">Equipo:</label>
+          <select class="form-control" name="equipo" required>
+            <option value="">Seleccione un equipo</option>
+            <option value="proyector">Proyector</option>
+            <option value="altavoces">Altavoces</option>
+            <option value="laptop">Laptop</option>
+            <option value="hdmi">HDMI</option>
+            <option value="vga">VGA</option>
+            <option value="cablePoder">Cable De Poder</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="fecha">Fecha:</label>
+          <input class="form-control" type="date" name="fecha_equipo" required />
+        </div>
+        <div class="form-group">
+          <label for="hora_inicio">Hora de inicio:</label>
+          <input id="hora_inicio" class="form-control" type="time" name="hora_inicio_equipo" required
+            onchange="validarTiempo()" />
+        </div>
+        <div class="form-group">
+          <label for="hora_fin">Hora de fin:</label>
+          <input id="hora_fin" class="form-control" type="time" name="hora_fin_equipo" required
+            onchange="validarTiempo()" />
+        </div>
+        <button class="btn btn-primary" type="submit">Reservar Equipo</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script>
-      function validarTiempo() {
-        // Obtener los valores de los campos de hora de inicio y hora de fin
-        var horaInicio = document.getElementById("hora_inicio").value;
-        var horaFin = document.getElementById("hora_fin").value;
+  // El usuario solo puede reservar por 2 horas o menos
 
-        // Convertir los valores a objetos Date
-        var fechaInicio = new Date("1970-01-01 " + horaInicio);
-        var fechaFin = new Date("1970-01-01 " + horaFin);
 
-        // Calcular la diferencia en milisegundos
-        var diferencia = fechaFin - fechaInicio;
+  <script>
+    function validarTiempo() {
+      // Obtener los valores de los campos de hora de inicio y hora de fin
+      var horaInicio = document.getElementById("hora_inicio").value;
+      var horaFin = document.getElementById("hora_fin").value;
 
-        // Convertir la diferencia a horas
-        var horas = diferencia / (1000 * 60 * 60);
+      // Convertir los valores a objetos Date
+      var fechaInicio = new Date("1970-01-01 " + horaInicio);
+      var fechaFin = new Date("1970-01-01 " + horaFin);
 
-        // Obtener el botón de reservar
-        var botonReservar = document.querySelector("button[type='submit']");
+      // Calcular la diferencia en milisegundos
+      var diferencia = fechaFin - fechaInicio;
 
-        // Si las horas son mayores que 3, mostrar un mensaje de error y deshabilitar el botón
-        if (horas > 3) {
-          alert("No se puede reservar un equipo por más de 3 horas");
-          botonReservar.disabled = true;
-        } else {
-          // Si las horas son menores o iguales que 3, habilitar el botón
-          botonReservar.disabled = false;
-        }
+      // Convertir la diferencia a horas
+      var horas = diferencia / (1000 * 60 * 60);
+
+      // Obtener el botón de reservar
+      var botonReservar = document.querySelector("button[type='submit']");
+
+      // Si las horas son mayores que 3, mostrar un mensaje de error y deshabilitar el botón
+      if (horas > 3) {
+        alert("No se puede reservar un equipo por más de 3 horas");
+        botonReservar.disabled = true;
+      } else {
+        // Si las horas son menores o iguales que 3, habilitar el botón
+        botonReservar.disabled = false;
       }
-    </script>
-  </body>
+    }
+  </script>
+</body>
+
 </html>
