@@ -26,10 +26,10 @@
               <option value="">Seleccione un equipo</option>
               <option value="proyector">Proyector</option>
               <option value="altavoces">Altavoces</option>
-              <option value="altavoces">Laptop</option>
-              <option value="altavoces">HDMI</option>
-              <option value="altavoces">VGA</option>
-              <option value="altavoces">Cable De Poder</option>
+              <option value="laptop">Laptop</option>
+              <option value="hdmi">HDMI</option>
+              <option value="vga">VGA</option>
+              <option value="cablePoder">Cable De Poder</option>
             </select>
           </div>
           <div class="form-group">
@@ -44,6 +44,7 @@
           <div class="form-group">
             <label for="hora_inicio">Hora de inicio:</label>
             <input
+              id="hora_inicio"
               class="form-control"
               type="time"
               name="hora_inicio_equipo"
@@ -53,6 +54,7 @@
           <div class="form-group">
             <label for="hora_fin">Hora de fin:</label>
             <input
+              id="hora_fin"
               class="form-control"
               type="time"
               name="hora_fin_equipo"
@@ -64,22 +66,5 @@
       </div>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-      $(document).ready(function () {
-        const horaInicio = document.getElementById("hora_inicio_laboratorio");
-        const horaFin = document.getElementById("hora_fin_laboratorio");
-
-        horaFin.addEventListener("change", function () {
-          const differenceInMinutes = (horaFin.value - horaInicio.value)
-            .totalMinutes;
-
-          if (differenceInMinutes > 120) {
-            horaFin.value = horaInicio.value;
-            alert("La reserva no puede ser mayor a 2 horas");
-          }
-        });
-      });
-    </script>
   </body>
 </html>
