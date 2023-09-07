@@ -5,10 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profesor</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 </head>
 
 <body>
@@ -49,12 +49,12 @@
       </form>
     </div>
   </div>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  // El usuario solo puede reservar por 2 horas o menos
 
 
   <script>
+    // Obtener el botón de reservar
+    var botonReservar = document.querySelector("button[type='submit']");
+
     function validarTiempo() {
       // Obtener los valores de los campos de hora de inicio y hora de fin
       var horaInicio = document.getElementById("hora_inicio").value;
@@ -69,9 +69,6 @@
 
       // Convertir la diferencia a horas
       var horas = diferencia / (1000 * 60 * 60);
-
-      // Obtener el botón de reservar
-      var botonReservar = document.querySelector("button[type='submit']");
 
       // Si las horas son mayores que 3, mostrar un mensaje de error y deshabilitar el botón
       if (horas > 3) {
